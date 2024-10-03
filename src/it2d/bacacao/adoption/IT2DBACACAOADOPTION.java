@@ -27,7 +27,7 @@ public class IT2DBACACAOADOPTION {
                     pet.addAdoption();
                 break;
                 case 2:
-                    pet.viewAdoption();
+          
                     
                 break;
             }
@@ -42,41 +42,21 @@ public class IT2DBACACAOADOPTION {
         Scanner sc = new Scanner(System.in);
         config conf = new config();
         System.out.print("Pet Name: ");
-        String fname = sc.next();
+        String name = sc.next();
         System.out.print("Pet Species: ");
-        String lname = sc.next();
+        String species = sc.next();
         System.out.print("Pet Breed: ");
-        String email = sc.next();
+        String breed = sc.next();
         System.out.print("Pet Status: ");
         String status = sc.next();
 
         String sql = "INSERT INTO tbl_PetAdoption (p_name, p_species, p_breed, p_status) VALUES (?, ?, ?, ?)";
-        conf.addAdoption(sql, fname, lname, email, status);
+        conf.addRecord(sql, name, species, breed, status);
         
         
-     }
-    @SuppressWarnings("empty-statement")
-               private void viewAdoption() {
-        String petQuery = "SELECT * FROM Adoption";
-        @SuppressWarnings("MismatchedReadAndWriteOfArray")
-        String[] petColumns;
-        petColumns = {"p_id", "p_name", "p_species", "p_breed", "p_status"};
-
-        conf.viewRecords(petQuery, petColumns);
+  
     }
 
-    private static class conf {
-
-        private static void viewRecords(String votersQuery, String[] votersHeaders, String[] votersColumns) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private static void viewRecords(String petQuery, String[] petColumns) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public conf() {
-        }
-    }
+  
    
 }

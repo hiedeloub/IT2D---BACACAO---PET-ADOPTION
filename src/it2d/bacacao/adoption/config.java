@@ -27,7 +27,7 @@ public class config {
 
     // Add Record Method
     public void addRecord(String sql, Object... values) {
-        try (Connection conn = PetAdoption.connectDB(); 
+        try (Connection conn = this.connectDB(); 
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             for (int i = 0; i < values.length; i++) {
                 pstmt.setObject(i + 1, values[i]); // Simplified setting of values
@@ -62,7 +62,7 @@ public class config {
             return;
         }
 
-        try (Connection conn = PetAdoption.connectDB();
+        try (Connection conn = this.connectDB();
              PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
              ResultSet rs = pstmt.executeQuery()) {
             StringBuilder headerLine = new StringBuilder();
@@ -88,10 +88,6 @@ public class config {
             System.out.println("Error retrieving records: " + e.getMessage());
         }
     }
-
-    void addAdoption(String sql, String fname, String lname, String email, String status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
   
     }
